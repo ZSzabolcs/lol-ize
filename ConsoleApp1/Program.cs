@@ -26,9 +26,17 @@ namespace ConsoleApp1
                     version = response[0];
                 }
             }
-            catch
+            catch (HttpRequestException httpEx)
             {
-
+                Console.WriteLine($"Kapcsolódási hiba: {httpEx.Message}");
+            }
+            catch (JsonException jsonEx)
+            {
+                Console.WriteLine($"Átalakítási hiba: {jsonEx.Message}");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Hiba: {ex.Message}");
             }
         }
     }
