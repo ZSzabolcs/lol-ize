@@ -24,7 +24,7 @@ namespace ConsoleApp1
                     client.Timeout = TimeSpan.FromSeconds(30);
                     string url = $"https://ddragon.leagueoflegends.com/cdn/{version}/data/en_US/champion.json";
                     var responseAPI = await client.GetStringAsync(url);
-                    var response = JsonSerializer.Deserialize<Champion[]>(responseAPI);
+                    var response = JsonSerializer.Deserialize<ChampionData>(responseAPI);
                 }
             }
             catch (HttpRequestException httpEx)
