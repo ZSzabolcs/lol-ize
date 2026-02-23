@@ -8,6 +8,7 @@ namespace ConsoleApp1
     internal class Program
     {
         static string version = "1.0";
+        static List<Champion> champion = new List<Champion>();
         static async Task Main(string[] args)
         {
             await LoadVersion();
@@ -25,6 +26,7 @@ namespace ConsoleApp1
                     string url = $"https://ddragon.leagueoflegends.com/cdn/{version}/data/en_US/champion.json";
                     var responseAPI = await client.GetStringAsync(url);
                     var response = JsonSerializer.Deserialize<ChampionData>(responseAPI);
+                    champion = response.Data.Values.ToList();
                 }
             }
             catch (HttpRequestException httpEx)
