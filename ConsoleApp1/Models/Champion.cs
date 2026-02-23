@@ -13,5 +13,9 @@ namespace ConsoleApp1.Models
         public string Name { get; set; }
         [JsonPropertyName("title")]
         public string Title { get; set; }
+        [JsonPropertyName("blurb")]
+        public string Blurb { get; set; }
+        [JsonPropertyName("info")]
+        public Info Info { get; set; }
     }
 }
